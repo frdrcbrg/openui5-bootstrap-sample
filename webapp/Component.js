@@ -1,6 +1,6 @@
-sap.ui.core.UIComponent.extend('todo.Component', {
+sap.ui.core.UIComponent.extend('sample.Component', {
 	metadata: {
-		name: 'Sample app',
+		name: 'Sample app bootstrap',
 		version: '1.0.0',
 		includes: ['css/styles.css'],
 		dependencies: {
