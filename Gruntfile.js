@@ -68,10 +68,6 @@ module.exports = function(grunt) {
 					dest: '<%= dir.dist %>'
 				} ]
 			}
-		},
-
-		eslint: {
-			webapp: ['<%= dir.webapp %>']
 		}
 
 	});
@@ -81,22 +77,17 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-openui5');
-	grunt.loadNpmTasks('grunt-eslint');
 
 	// Server task
 	grunt.registerTask('serve', function(target) {
 		grunt.task.run('openui5_connect:' + (target || 'src') + ':keepalive');
 	});
 
-	// Linting task
-	grunt.registerTask('lint', ['eslint']);
-
 	// Build task
 	grunt.registerTask('build', ['openui5_preload', 'copy']);
 
 	// Default task
 	grunt.registerTask('default', [
-		'lint',
 		'clean',
 		'build',
 		'serve:dist'
